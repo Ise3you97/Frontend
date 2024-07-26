@@ -10,7 +10,7 @@ export class NotesList extends Component {
   }
 
   async getNotes() {
-    const res = await axios.get('http://backend-lrbo.onrender.com/api/notes');
+    const res = await axios.get('https://backend-lrbo.onrender.com/api/notes');
     this.setState({ notes: res.data });
   }
 
@@ -19,7 +19,7 @@ export class NotesList extends Component {
   }
 
   deleteNote = async (id) => {
-    await axios.delete(`http://backend-lrbo.onrender.com/api/notes/${id}`);
+    await axios.delete(`https://backend-lrbo.onrender.com/api/notes/${id}`);
     this.getNotes();
   }
 
