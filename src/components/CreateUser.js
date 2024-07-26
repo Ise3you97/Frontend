@@ -10,7 +10,7 @@ export class CreateUser extends Component {
   };
   async getUsers(){
     try {
-      const res = await axios.get('http://localhost:4000/api/users');
+      const res = await axios.get('http://backend-lrbo.onrender.com/api/users');
       this.setState({ users: res.data });
       console.log(this.state.users);
     } catch (error) {
@@ -26,7 +26,7 @@ export class CreateUser extends Component {
   };
   onSbubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post('http://localhost:4000/api/users', {
+    const res = await axios.post('http://backend-lrbo.onrender.com/api/users', {
       username: this.state.username
     })
     this.setState({username: ''})
@@ -35,7 +35,7 @@ export class CreateUser extends Component {
 
   deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/users/${id}`);
+      await axios.delete(`http://backend-lrbo.onrender.com/api/users/${id}`);
       this.getUsers(); // Actualiza la lista después de eliminar
     } catch (error) {
       console.error('Error deleting user:', error);

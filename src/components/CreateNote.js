@@ -23,12 +23,12 @@ export class CreateNote extends Component {
     });
 
     // Obtiene la lista de usuarios desde la API
-    const res = await axios.get('http://localhost:4000/api/users');
+    const res = await axios.get('http://backend-lrbo.onrender.com/api/users');
     this.setState({ users: res.data.map(user => user.username) });
 
     // Si hay un ID de nota (modo edición), obtén los detalles de la nota
     if (myID) {
-      const res = await axios.get(`http://localhost:4000/api/notes/${this.state.idState}`);
+      const res = await axios.get(`http://backend-lrbo.onrender.com/api/notes/${this.state.idState}`);
 
       // Actualiza el estado con los datos de la nota existente
       this.setState({
@@ -62,10 +62,10 @@ export class CreateNote extends Component {
 
     // Si está en modo edición, realiza una solicitud PUT para actualizar la nota existente
     if (this.state.editing) {
-      await axios.put(`http://localhost:4000/api/notes/${this.state.idState}`, newNote);
+      await axios.put(`http://backend-lrbo.onrender.com/api/notes/${this.state.idState}`, newNote);
     } else {
       // Si no está en modo edición, realiza una solicitud POST para crear una nueva nota
-      await axios.post('http://localhost:4000/api/notes', newNote);
+      await axios.post('http://backend-lrbo.onrender.com/api/notes', newNote);
     }
 
     // Redirige a la página principal después de guardar la nota
